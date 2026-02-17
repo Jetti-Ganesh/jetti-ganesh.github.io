@@ -2,129 +2,237 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            margin: 20px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-image: url(background.avif);
+            background-size: cover;
+            box-sizing: border-box;
+        }
+
+        th {
+            font-weight: 600;
+            padding: 10px;
+            margin: 5px;
+            /* border-radius:10px ; */
+            /* text-align: left; */
+        }
+
+        th:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        #pc {
+            width: 110px;
+        }
+
+        tbody td {
+            border: 1px solid black;
+            text-align: center;
+            padding: 5px;
+        }
+
+        /* td{
+            padding: 10px;
+            border: 1px solid;
+        } */
+
+        table {
+            background-color: rgba(255, 255, 255, 0.7);
+            border: 2px solid white;
+            /* border-radius: 10px;       */
+            border-spacing: 0;
+            width: 95vw;
+            height: 75vh;
+            box-shadow: 2px 2px 10px white;
+
+        }
+
+        thead th button {
+            background: none;
+            border: none;
+        }
+
+        i {
+            font-weight: 600;
+        }
+
+        .navigate {
+            width: 95vw;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .navigate button {
+            margin-top: 10px;
+            width: 100px;
+            background-color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 40px;
+            margin-right: 10px;
+            box-shadow: 2px 2px 10px white;
+        }
+        .search{
+            width: 95vw;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .search input {
+            width:600px;
+            border: 1px solid;
+            border-radius:20px;
+            padding: 10px;
+            background-color: white;
+            box-shadow: 2px 2px 10px white;
+        }
+        .search button{
+            width: 100px;
+            background-color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 40px;
+            margin-left: 10px;
+            box-shadow: 2px 2px 10px white;
+        }
+    </style>
 </head>
 
 <body>
-
-  <!-- HERO -->
-  <section class="hero">
-    <canvas id="particles"></canvas>
-    <div class="hero-content">
-      <h1>Ganesh</h1>
-      <h2>Web Developer • AI Enthusiast • Cybersecurity</h2>
-      <p>Building intelligent, secure, next-gen digital experiences</p>
-      <div class="cta">
-        <a href="#projects">View My Work</a>
-        <a href="#contact" class="outline">Hire Me</a>
-      </div>
+    <div class="search">
+        <input type="text" placeholder="Search Book Title...">
+        <button>Search</button>
     </div>
-  </section>
+    <table>
+        <thead id="library_headers">
+            <th id="title" width="374">Title<button><i id="i1" class="bi bi-arrow-up"></i></button></th>
+            <th id="author" width="337">Author<button><i id="i2" class="bi bi-arrow-up"></i></button></th>
+            <th id="price" width="111">Price<button><i id="i3" class="bi bi-arrow-up"></i></button></th>
+            <th id="pageCount" id="pc">PageCount<button><i id="i4" class="bi bi-arrow-up"></i></button></th>
+        </thead>
+        <tbody id="book_details">
 
-  <!-- ABOUT -->
-  <section id="about" class="glass">
-    <h3>About Me</h3>
-    <p>
-      I am a frontend-focused Web Developer with a strong passion for AI and
-      Cybersecurity. I design and build modern, performant, and secure web
-      applications inspired by futuristic technology.
-    </p>
-  </section>
+        </tbody>
 
-  <!-- SKILLS -->
-  <section id="skills">
-    <h3>Skills</h3>
-    <div class="skills-grid">
-      <div class="skill">
-        <span>HTML / CSS</span>
-        <div class="bar">
-          <div style="width:90%"></div>
-        </div>
-      </div>
-      <div class="skill">
-        <span>JavaScript</span>
-        <div class="bar">
-          <div style="width:85%"></div>
-        </div>
-      </div>
-      <div class="skill">
-        <span>Frontend Frameworks</span>
-        <div class="bar">
-          <div style="width:80%"></div>
-        </div>
-      </div>
-      <div class="skill">
-        <span>AI & ML Basics</span>
-        <div class="bar">
-          <div style="width:70%"></div>
-        </div>
-      </div>
-      <div class="skill">
-        <span>Cybersecurity</span>
-        <div class="bar">
-          <div style="width:65%"></div>
-        </div>
-      </div>
+    </table>
+    <div class="navigate">
+        <button onclick=prev()><i class="bi bi-caret-left-fill"></i> Previous</button>
+        <button onclick=next()>Next<i class="bi bi-caret-right-fill"></i> </button>
     </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects">
-    <h3>Projects</h3>
-    <div class="projects-grid">
-      <div class="project glass">
-        <h4>To-Do List</h4>
-        <p>A to-do list application with SimpleUI </p>
-        <span>HTML • JS</span>
-        <h5>Source Code:</h5>
-      </div>
-      <div class="project glass">
-        <h4>Ecommerce Inventory</h4>
-        <p>An Ecommerce Inventory with Dynamic ....</p>
-        <span>Dynamic Frontend • Js</span>
-      </div>
-      <div class="project glass">
-        <h4>Library Manager</h4>
-        <p>An Library Manager with basic functionality....</p>
-        <span>CSS • Design</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- TIMELINE -->
-  <section id="experience">
-    <h3>Experience & Education</h3>
-    <div class="timeline">
-      <div class="event">
-        <span>2024</span>
-        <p>Frontend & AI Learning Path</p>
-      </div>
-      <div class="event">
-        <span>2025</span>
-        <p>Cybersecurity & Advanced Web Projects</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="glass">
-    <h3>Contact Me</h3>
-    <form>
-      <input type="text" required placeholder="Your Name">
-      <input type="email" required placeholder="Your Email">
-      <textarea required placeholder="Your Message"></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
-
-  <footer>
-    <p>© 2025 Ganesh | Futuristic Portfolio</p>
-  </footer>
-
-  <script src="script.js"></script>
 </body>
+<script src="source.js"></script>
+<script>
+    var rowsPerPage = 10;
+    var currentPage = 1;
+    function display_table() {
+        //fetching data
+
+        var start = (currentPage - 1) * rowsPerPage;
+        var end = start + 10;
+        var data = books.slice(start, end);
+        data.forEach(function (element) {
+            // console.log(element);
+            // const [title,authors,price,pageCount] = element;
+            var book = document.createElement("tr");
+            var titleDis = document.createElement("td");
+            titleDis.innerText = element.title;
+            var authorsDis = document.createElement("td");
+            authorsDis.innerText = element.authors;;
+            var priceDis = document.createElement("td");
+            priceDis.innerText = element.price;
+            var pageCountDis = document.createElement("td");
+            pageCountDis.innerText = element.pageCount;
+            book.appendChild(titleDis);
+            book.appendChild(authorsDis);
+            book.appendChild(priceDis);
+            book.appendChild(pageCountDis);
+            book.style.height = "60px";
+            document.getElementById("book_details").appendChild(book);
+        });
+    }
+    display_table();
+    function clear_table() {
+        document.getElementById("book_details").innerHTML = "";
+    }
+    function next() {
+        if (currentPage * rowsPerPage < books.length) {
+            currentPage++;
+            clear_table();
+            display_table();
+        }
+    }
+    function prev() {
+        if (currentPage > 1) {
+            currentPage--;
+            clear_table();
+            display_table();
+        }
+    }
+
+    document.getElementById("title").addEventListener("click",function()
+{
+    var index = true;
+        var start = (currentPage - 1) * rowsPerPage;
+        var end = start + 10;
+        var data = books.slice(start, end);
+
+        if (index) {
+
+            var x = document.getElementById("i1");
+            x.className="bi bi-arrow-up"
+            console.log(x);
+            data.sort(function (a1, a2) {
+                if (a1[title] > a2[title]) { return 1 }
+                else { return -1 }
+            })
+            index = false;
+            console.log(data);
+        }
+        else {
+            var x = document.getElementById("i1");
+            x.className="bi bi-arrow-down"
+            data.sort(function (a1, a2) {
+                if (a1[title] < a2[title]) { return 1 }
+                else { return -1 }
+            })
+            index = true;
+            console.log(data);
+        }
+        clear_table();
+        gen_table(data);
+})
+
+//     function sortTable(k) {
+        
+//     }
+    function gen_table(data) {
+        data.forEach(function (element) {
+            // console.log(element);
+            // const [title,authors,price,pageCount] = element;
+            var book = document.createElement("tr");
+            var titleDis = document.createElement("td");
+            titleDis.innerText = element.title;
+            var authorsDis = document.createElement("td");
+            authorsDis.innerText = element.authors;;
+            var priceDis = document.createElement("td");
+            priceDis.innerText = element.price;
+            var pageCountDis = document.createElement("td");
+            pageCountDis.innerText = element.pageCount;
+            book.appendChild(titleDis);
+            book.appendChild(authorsDis);
+            book.appendChild(priceDis);
+            book.appendChild(pageCountDis);
+            book.style.height = "60px";
+            document.getElementById("book_details").appendChild(book);
+        });
+    }
+</script>
 
 </html>
